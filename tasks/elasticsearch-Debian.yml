@@ -79,7 +79,7 @@
   dpkg_selections:
     name: "{{ es_package_name }}"
     selection: "install"
-  when: not es_version_lock or (installed_es_version.stdout and installed_es_version.stdout != es_version)
+  when: not es_version_lock or (installed_es_version.stdout is defined and installed_es_version.stdout != '' and installed_es_version.stdout != es_version)
 
 - name: Debian - Ensure elasticsearch is installed
   become: yes
