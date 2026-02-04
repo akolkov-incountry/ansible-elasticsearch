@@ -1,10 +1,12 @@
 ---
 
 - name: set fact es_same_keystore
-  set_fact: es_same_keystore=false
+  set_fact:
+    es_same_keystore: false
 
 - name: set fact es_same_keystore if stores match
-  set_fact: es_same_keystore=true
+  set_fact:
+    es_same_keystore: true
   when: es_ssl_keystore == es_ssl_truststore
 
 - name: Ensure certificate directory exists

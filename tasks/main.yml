@@ -72,10 +72,12 @@
   when: es_restarted is defined and es_restarted.changed and es_start_service
 
 - name: set fact manage_native_realm to false
-  set_fact: manage_native_realm=false
+  set_fact:
+    manage_native_realm: false
 
 - name: set fact manage_native_realm to true
-  set_fact: manage_native_realm=true
+  set_fact:
+    manage_native_realm: true
   when:
    - es_start_service
    - not oss_version
